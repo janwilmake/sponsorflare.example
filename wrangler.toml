@@ -4,7 +4,7 @@ compatibility_date = "2025-01-29"
 
 [vars]
 # Change depending on where you want to redirect from github oauth client
-GITHUB_REDIRECT_URI = "https://dashboard.uithub.com/callback"
+# GITHUB_REDIRECT_URI = "https://yourdomain.com/callback"
 # Change to redirect elsewhere by default after the callback
 LOGIN_REDIRECT_URI = "/"
 # Set to true to share the cookie across all the main domain and all subdomains
@@ -15,3 +15,7 @@ name = "SPONSOR_DO"
 class_name = "SponsorDO"
 # This allows to use the same DO even though it's defined in another worker, which allows sharing user budget across multiple projects, if you want!
 # script_name = "your other script"
+
+[[migrations]]
+tag = "v1"
+new_classes = ["SponsorDO"]

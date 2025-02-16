@@ -1,5 +1,5 @@
-import { Env, getSponsor, middleware } from "sponsorflare";
-
+import { Env, getSponsor, middleware, SponsorDO } from "sponsorflare";
+export { SponsorDO };
 export default {
   fetch: async (request: Request, env: Env) => {
     const sponsorflare = await middleware(request, env);
