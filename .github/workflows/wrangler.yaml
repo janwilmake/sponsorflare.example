@@ -1,0 +1,41 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - "*" # Run on all branches
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    name: Deploy
+    steps:
+      - uses: actions/checkout@v4
+
+      # Add step to check wrangler.toml and determine environment
+      - name: Check wrangler.toml for environments
+        id: check-env
+        run: |
+          # Get current branch name without refs/heads/
+          BRANCH_NAME=${GITHUB_REF#refs/heads/}
+
+          # Check if wrangler.toml exists
+          if [ ! -f "wrangler.toml" ]; then
+            echo "env_flag=" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+
+          # Check if env exists in wrangler.toml
+          if grep -q "\\[env\\.${BRANCH_NAME}\\]" wrangler.toml; then
+            echo "env_flag=--env ${BRANCH_NAME}" >> $GITHUB_OUTPUT
+          else
+            echo "env_flag=" >> $GITHUB_OUTPUT
+          fi
+
+      # Deploy on the environment of the branchname
+      # or without environment if that wasn't found
+      - name: Deploy
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          command: deploy ${{ steps.check-env.outputs.env_flag }}
