@@ -1,0 +1,7 @@
+{
+  "targetRepo": "calc-1234",
+  "targetBranch": "feature/calculator-api",
+  "createPr": true,
+  "prTitle": "Implement Calculator API",
+  "prDescription": "Add calculator endpoints for basic arithmetic operations"
+}
