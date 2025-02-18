@@ -1,8 +1,10 @@
 {
+  "name": "calc-api-123",
+  "private": true,
+  "version": "1.0.0",
   "devDependencies": {
-    "@cloudflare/workers-types": "^4.20250124.3"
-  },
-  "dependencies": {
-    "sponsorflare": "^0.0.35"
+    "@cloudflare/workers-types": "^4.20250124.3",
+    "typescript": "^5.0.0",
+    "wrangler": "^3.0.0"
   }
 }

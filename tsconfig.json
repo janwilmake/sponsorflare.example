@@ -1,15 +1,14 @@
 {
-  "include": ["main.ts"],
-  "files": ["globals.d.ts"],
   "compilerOptions": {
-    "lib": ["ESNext"],
-    "target": "ESNext",
-    "module": "nodenext",
+    "target": "ES2020",
+    "module": "CommonJS",
+    "lib": [
+      "ES2020"
+    ],
+    "types": [
+      "@cloudflare/workers-types"
+    ],
     "strict": true,
-    "moduleResolution": "nodenext",
-    "noEmit": true,
-    "skipLibCheck": true,
-    "types": ["@cloudflare/workers-types"],
-    "declaration": true
+    "noEmit": true
   }
 }

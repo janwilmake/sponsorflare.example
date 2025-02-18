@@ -1,5 +1,4 @@
 node_modules
-.dev.vars
+dist
+.env
 .wrangler
-.DS_Store
-package-lock.json
