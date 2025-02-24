@@ -19,6 +19,7 @@ Also, be sure to always include the patch configuration in your response, e.g.:
 ```json name="uithub.patch"
 {
   "targetBranch": "feature/name-for-feature",
+  "commitMessage": "Description of changes",
   "createPr": true,
   "prTitle": "Title for the PR",
   "prDescription": "Short Description of the changes"
